@@ -1,0 +1,58 @@
+<!doctype <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Trivia Game - Nuts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+    <link href="https://fonts.googleapis.com/css?family=Sriracha" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    
+</head>
+<body>
+    <div id="container">
+        <div id="header">   
+            <img id="headerPhoto" src="assets/images/vincent-van-zalinge-438227-unsplash (1).jpg" alt="squirrel" height=175px >       
+            <p id="line1">go Nuts!</p>
+            <p id="line2">trivia game</p>
+        </div> <!-- end header  -->
+        
+        <div id="mainContent">
+            <p>Welcome to go Nuts! trivia game. Click the start button to begin.</p>
+            <button id="startBtn">Start</button>
+        <hr>
+            <div id="show-countdown">00:00</div>   
+        <div id="question">THIS IS MY FIRST QUESTION. CAN YOU ANSWER IT?</div>
+        <br>
+        <h2>click to select your answer</h2>
+                <label class="answer">Brazil Nut
+                    <input id="radioBtn" type="radio" name=answer1 value="getFromArray" checked>
+                    <span class="checkmark"></span>
+                </label>
+                <label class="answer">Walnut
+                    <input id="radioBtn"type="radio"name=answer2 value="getFromArray" unchecked>
+                    <span class="checkmark"></span>
+                </label>
+                <label class="answer">Hazel Nut
+                    <input id="radioBtn"type="radio" name=answer3 value="getFromArray" unchecked>
+                    <span class="checkmark"></span>
+                </label>
+                <label class="answer">Peanut
+                    <input id="radioBtn"type="radio" name=answer4 value="getFromArray" unchecked>
+                    <span class="checkmark"></span>
+                </label>
+                        
+        
+        
+        
+        <!-- end mainContent-->
+        
+    </div> <!-- end container tag -->
+    
+    <!-- All script files go here -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="assets/javascript/app.js"></script>   
+</body>
+</html>
