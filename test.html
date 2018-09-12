@@ -1,0 +1,88 @@
+<!doctype <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Trivia Game - Nuts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+    <link href="https://fonts.googleapis.com/css?family=Sriracha" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    
+</head>
+<body>
+    <div id="container">
+        <div id="header">   
+            <img id="headerPhoto" src="assets/images/vincent-van-zalinge-438227-unsplash (1).jpg" alt="squirrel" height=175px >       
+            <p id="headerText1">go Nuts!</p>
+            <p id="headerText2">trivia game</p>
+        </div> <!-- end header  -->
+        
+        <div id="mainContentArea">
+            <div id="startDiv">
+            <p id="directions" >Click the start button to begin.</p>
+            <button id="startBtn" >Start</button>
+        </div>
+        
+        <div id="questionDiv">
+            <div class="titleCountdown">Time Remaining:</div>
+            <div class="showCountdown">30</div> 
+            <div id="question">THIS IS MY FIRST QUESTION. CAN YOU ANSWER IT? What happens if my question is longer that the width of this screen?</div>
+            <br>
+                <label class="choice">Brazil Nut
+                    <input id="radioBtn1" type="radio" name=choice value="choiceArr[0]" unchecked>
+                    <span class="checkmark"></span>
+                </label>
+                <label class="choice">Walnut
+                    <input id="radioBtn2"type="radio" name=choice value="choiceArr[1]" unchecked>
+                    <span class="checkmark"></span>
+                </label>
+                <label class="choice">Hazel Nut
+                    <input id="radioBtn3"type="radio" name=choice value="choiceArr[2]" unchecked>
+                    <span class="checkmark"></span>
+                </label>
+                <label class="choice">Peanut
+                    <input id="radioBtn4"type="radio" name=choice value="choiceArr[3]" unchecked>
+                    <span class="checkmark"></span>
+                </label>
+                <label class="choice">Macadamia Nut
+                        <input id="radioBtn5"type="radio" name=choice value="choiceArr[4]" unchecked>
+                        <span class="checkmark"></span>
+                </label>       
+                <label class="choice">Almonds
+                        <input id="radioBtn6"type="radio" name=choice value="choiceArr[5]" unchecked>
+                        <span class="checkmark"></span>
+                </label>
+        </div> <!-- end questionDiv-->
+
+        <div id="answerDiv">
+                <div class="titleCountdown">Time Remaining:</div>
+                <div class="showCountdown">30</div> 
+                <div id="statusMsg">State if Correct or Incorrect here</div>
+                <div id="answer">get from answerArr[i]</div>
+                <img src="assets/images/macadamia-nuts-1098170_1920.jpg" alt="answer image here" height= 100px>
+        </div>
+
+        <div id="result">
+            <div>Correct Answers:</div>
+            <div id="totCorrect">5</div>
+            <div>Incorrect Answers:</div>
+            <div id="totIncorrect">5</div>
+            <div>Unanswered:</div>
+            <div id="totUnanswered">0</div>
+            <button id="restarttBtn" >Restart</button>
+
+        </div>
+
+
+        
+        <!-- end mainContent-->
+        
+    </div> <!-- end container tag -->
+    
+    <!-- All script files go here -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="assets/javascript/app.js"></script>   
+</body>
+</html>

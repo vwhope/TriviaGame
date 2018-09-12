@@ -3,11 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Trivia Game - Nuts</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
-    <link href="https://fonts.googleapis.com/css?family=Sriracha" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Sriracha" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     
 </head>
@@ -15,39 +13,51 @@
     <div id="container">
         <div id="header">   
             <img id="headerPhoto" src="assets/images/vincent-van-zalinge-438227-unsplash (1).jpg" alt="squirrel" height=175px >       
-            <p id="line1">go Nuts!</p>
-            <p id="line2">trivia game</p>
+            <p id="headerText1">go Nuts!</p>
+            <p id="headerText2">trivia game</p>
         </div> <!-- end header  -->
         
-        <div id="mainContent">
-            <p>Welcome to go Nuts! trivia game. Click the start button to begin.</p>
-            <button id="startBtn">Start</button>
-        <hr>
-            <div id="show-countdown">00:00</div>   
-        <div id="question">THIS IS MY FIRST QUESTION. CAN YOU ANSWER IT?</div>
-        <br>
-        <h2>click to select your answer</h2>
-                <label class="answer">Brazil Nut
-                    <input id="radioBtn" type="radio" name=answer1 value="getFromArray" checked>
-                    <span class="checkmark"></span>
-                </label>
-                <label class="answer">Walnut
-                    <input id="radioBtn"type="radio"name=answer2 value="getFromArray" unchecked>
-                    <span class="checkmark"></span>
-                </label>
-                <label class="answer">Hazel Nut
-                    <input id="radioBtn"type="radio" name=answer3 value="getFromArray" unchecked>
-                    <span class="checkmark"></span>
-                </label>
-                <label class="answer">Peanut
-                    <input id="radioBtn"type="radio" name=answer4 value="getFromArray" unchecked>
-                    <span class="checkmark"></span>
-                </label>
-                        
-        
-        
-        
-        <!-- end mainContent-->
+        <div id="mainContentArea">
+            
+            <div class="page" id="startDiv">
+                <p id="directions" >Click the start button to begin.</p>
+                <button id="startBtn">Start</button>
+            </div> <!-- end startDiv-->
+
+            <div class="page" id="questionDiv">
+                <div class="titleCountdown"></div>
+                <div class="showCountdown"></div> 
+                <div id="question"></div>
+                <br>
+                <form>
+                    <input class="radioBtn" type="radio" name="choice" value=subChoiceArr[0]><label for="radioLabel1">[0]</label>
+                    <input class="radioBtn" type="radio" name="choice" value=subChoiceArr[1]><label for="radioLabel2">[1]</label>
+                    <input class="radioBtn" type="radio" name="choice" value=subChoiceArr[2]><label for="radioLabel3">[2]</label>
+                    <input class="radioBtn" type="radio" name="choice" value=subChoiceArr[3]><label for="radioLabel4">[3]</label>
+                    <input class="radioBtn" type="radio" name="choice" value=subChoiceArr[4]><label for="radioLabel5">[4]</label>
+                    <input class="radioBtn" type="radio" name="choice" value=subChoiceArr[5]><label for="radioLabel6">[5]</label>
+                </form>    
+            </div> <!-- end questionDiv-->
+
+            <div class="page" id="answerDiv">
+                    <div class="titleCountdown">Time Remaining:</div>
+                    <div class="showCountdown">30</div> 
+                    <div id="statusMsg">State if Correct or Incorrect here</div>
+                    <div id="answer">get from answerArr[i]</div>
+                    <img src="assets/images/macadamia-nuts-1098170_1920.jpg" alt="answer image here" height= 100px>
+            </div> <!-- end answerDiv -->
+    
+            <div class="page" id="resultDiv">
+                <div>Correct Answers:</div>
+                <div id="totCorrect">5</div>
+                <div>Incorrect Answers:</div>
+                <div id="totIncorrect">5</div>
+                <div>Unanswered:</div>
+                <div id="totUnanswered">0</div>
+                <button id="restarttBtn" >Restart</button>
+            </div> <!-- end resultDiv -->
+    
+        </div> <!-- end mainContentArea-->
         
     </div> <!-- end container tag -->
     

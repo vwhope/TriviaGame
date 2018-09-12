@@ -11,7 +11,7 @@ body {
     overflow: auto;
     }
 
-#line1, #line2 {
+#headerText1, #headerText2 {
     line-height: 65px;
     text-align: center;
     font-family: 'Sriracha', cursive;
@@ -19,7 +19,7 @@ body {
     padding-top: 20px;
 }
 
-#line2 {
+#headerText2 {
     line-height: 45px;
     font-size: 40px;
 }
@@ -29,17 +29,56 @@ body {
    clear: right;
    border-right: 2px solid black;
    display: block;
-   margin-right: 25px;
-   
 } 
 
-#mainContent {
-    width: 700px;
+#mainContentArea {
+    width: 660px;
     margin: 0 auto;
     background-color: #ffffff; 
     border-left: 8px solid black;
     border-right: 8px solid black;
     border-bottom: 8px solid black;
-    padding-top: 50px;
-    z-index: 1;
+    padding: 50px 20px 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18px;
+    line-height: 30px;
 }
+
+#startDiv {
+    align-items: center;
+   
+}
+#directions {
+/* text-align: center; */
+font-size: 20px;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+line-height: 20px;
+margin-bottom: 20px;
+}
+
+#startBtn {
+font-size: 20px;
+padding: 5px 10px;
+}
+
+.titleCountdown {
+    display: inline-block;
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+.showCountdown {
+background-color: black;
+color: #ffffff;
+font-size: 20px;
+font-family: monospace;
+padding: 10px 15px;
+margin: 20px 0px;
+text-align: center;
+display: inline-block;
+}
+
+.choice {
+    padding-right: 8px;
+}
+ 
