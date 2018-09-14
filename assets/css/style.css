@@ -81,4 +81,8 @@ display: inline-block;
 .choice {
     padding-right: 8px;
 }
+
+#answerImg {
+    margin-top: 20px;
+}
  
