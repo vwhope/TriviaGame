@@ -150,19 +150,23 @@ function stopTimer() {
 function getUserChoice() {
   
   stopTimer();
-  
-  var userChoice = $('input:radio:checked').val();
+  var i = questionCounter;
+ 
+  var userChoice = $("input:radio:checked");
   // you can only get this AFTER user clicks on an answer
   // the issue here is that I need that actual value contained in subChoiceArr[i] not the literal 'subChoiceArr[i]' to compare to correct answer
+  console.log(subChoiceArr[3]);
   console.log("userChoice =  " + userChoice);
-  console.log("answerArr: " + i );
+
+  console.log("answersArr: " + i );
+  console.log("answersArrdata: " + answersArr[i]);
   
   if (userChoice === answersArr[i]) {
     $('#statusMsg').html('CORRECT!');
   } else {
     $('#statusMsg').html('Sorry, your answer is incorrect'); 
   }
-  showNextAnswer(showNextQuestion);
+  // showNextAnswer();
 } // end function getUserChoice
 
 
@@ -185,6 +189,9 @@ function showNextQuestion() {
     // show next question
     $( '#question' ).html(questionsArr[i]);
     
+    // be sure all radio buttons are UNchecked
+    $('input[name=choice]').attr('checked', false);
+
     // show choices (labels for radio buttons) each question has 6 choices (substrings of choicesArr which is incremented so do not need to increment the substring) 
     var subChoiceArr = choicesArr[i].split(',');
     
@@ -231,11 +238,18 @@ function showNextAnswer(callback) {
 
 
 function playGame() {
-  // user has pressed start button, you only go through this function once!
+  // user has pressed the start or restart button, you only go through this function once per game!
   // startTimer function is called and countDownNbr displays each second until 0 time
   // the FIRST question in questionsArr should be visible
   // before doing anything else, check to see if out of questions (questionsArr.length)
   // wait until an on.click event, then goto show answer (value of i is important so show answer for correct question) 
+  
+  totCorrect = 0;
+  totIncorrect = 0;
+  totUnanswered = 0;
+  intervalId = 0;
+  countDownNbr = 10; // number of seconds player has to: answer questions
+    
   questionCounter = 0;
   var i = questionCounter; // get first array element
   
@@ -269,9 +283,9 @@ function playGame() {
 initializeGame(); // reset all counters, stop any timers, show start button and game directions 
 
 // Register event listeners/handlers for ANY button click event, get which button clicked
-$('#startBtn').on('click', playGame); 
+$('.playBtn').on('click', playGame); 
 $('.radioBtn').on('click', getUserChoice);
-$('#restartBtn').on('click', initializeGame);
+
 
 
 // ================================ END GAME ================================================================================
