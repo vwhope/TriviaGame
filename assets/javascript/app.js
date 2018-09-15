@@ -20,11 +20,6 @@
  var intervalId = 0;
  var countDownNbr = 10; // countdown for each question = 30 seconds, for answer and result: 15 seconds, shorter now for testing purposes
  var questionCounter = 0;
- // may not need these three variables
- var questionNbr = 0;
- var choiceNbr = 0;
- var answserNbr = 0;
- 
  
  var questionsArr = ['1. Which nut listed can NOT be purchased in its shell?',
  '2. Which nut listed is a TRUE nut?',
@@ -120,10 +115,10 @@ function showAnswers (callback) {
 }
 
 // to show resultDiv only
-function showResults (callback) {
+function showResults () {
   $pageDivs.all.hide();
   $pageDivs.results.show();
-  setTimeout(callback, 10000);
+  // setTimeout(callback, 10000);
   
 }
 ///////////////////////////////////////////////////////////
@@ -134,7 +129,7 @@ function startTimer() {
 
 // decrement countDownNbr by 1 until it reaches 0, then stop timer
 function decrement() {
-  
+  // if out of time...
   if (countDownNbr === 0) {
     stopTimer();
     // showAnswers(showNextQuestion);
@@ -153,33 +148,37 @@ function stopTimer() {
 
 // this function only runs if user CLICKS an answer  
 function getUserChoice() {
+  
   stopTimer();
+  
   var userChoice = $('input:radio:checked').val();
   // you can only get this AFTER user clicks on an answer
   // the issue here is that I need that actual value contained in subChoiceArr[i] not the literal 'subChoiceArr[i]' to compare to correct answer
-  console.log(userChoice);
+  console.log("userChoice =  " + userChoice);
+  console.log("answerArr: " + i );
+  
   if (userChoice === answersArr[i]) {
     $('#statusMsg').html('CORRECT!');
   } else {
     $('#statusMsg').html('Sorry, your answer is incorrect'); 
   }
-  showAnswers(showNextQuestion);
+  showNextAnswer(showNextQuestion);
 } // end function getUserChoice
 
 
 
 function showNextQuestion() {
   stopTimer();
+  countDownNbr = 10;
   startTimer();
   
-  // increment to next question
+  // +1 for next question - this is the only place you should increment the question counter!
   questionCounter = questionCounter + 1;
+  // putting questionCounter in i variable for ease of reading the array index code
   var i = questionCounter;
-  console.log("var i = " + i);
-
-  if (i > questionsArr.length) {
-    showResults();
-  } else {
+  console.log("showNextQuestion var i = " + i);
+  
+  if (i < questionsArr.length) {
     showQuestions();
     $( '.titleCountdown').html('Time Remaining:');
     $( '.showCountdown').html(countDownNbr);
@@ -196,31 +195,39 @@ function showNextQuestion() {
     $('label[for=radioLabel5]').html(subChoiceArr[4]);
     $('label[for=radioLabel6]').html(subChoiceArr[5]);
     
+  } else {
+    showEndResults();
   };
 } //end showNextQuestion
 
 
 
-function showResults() {
+function showEndResults() {
   stopTimer();
+  countDownNbr = 0;
+  showResults();
   $( '#totCorrect').html(totCorrect); 
   $( '#totIncorrect').html(totIncorrect); 
   $( '#totUnanswered').html(totUnanswered); 
-} // end showResults
+} // end showResults - is end of game unless user clicks restart
 
 
 
-function showNextAnswer() {
+function showNextAnswer(callback) {
   var i = questionCounter;
-  startTimer();
+ // if user ran out of time, add 1 to totUnaswered
+  if(countDownNbr === 0) {
+    totUnanswered = totUnanswered + 1;
+  };
+  stopTimer();
   showAnswers(showNextQuestion);
   $('.titleCountdown').html('Time Remaining:');
   $('.showCountdown').html(countDownNbr);
-  $('#statusMsg').html('Sorry, you are out of time!');
+  $('#statusMsg').html('Out of Time!');
   $('#answer').html(answersTextArr[i]);
   $('#answerImg').attr('src', answersPhotoArr[i]);
-  
-} // end showNextAnswer
+  setTimeout(callback, 10000);
+  } // end showNextAnswer - should call back to showNextQuestion until out of questions
 
 
 function playGame() {
@@ -229,10 +236,10 @@ function playGame() {
   // the FIRST question in questionsArr should be visible
   // before doing anything else, check to see if out of questions (questionsArr.length)
   // wait until an on.click event, then goto show answer (value of i is important so show answer for correct question) 
+  questionCounter = 0;
+  var i = questionCounter; // get first array element
   
-  var i = questionCounter; // should be zero here, first array element
-  
-  // show countdownTimer, the question and the choices
+  // show countdownTimer, first question and its choices
   startTimer();
   showQuestions();
   
