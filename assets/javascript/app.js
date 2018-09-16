@@ -154,6 +154,7 @@ function stopTimer() {
 function getUserChoice() {
   stopTimer();
   var i = questionCounter;
+
  ////////////////// there has got to be a better way ////////////
   console.log(choicesArr[i]); // these are the possible choices for THIS question (i)
   
@@ -169,6 +170,7 @@ function getUserChoice() {
   
   userChoice = getChoiceArr[j];
   console.log(userChoice);
+ /////////////////////////////////////////////////////////////////
 
  // now see if the userChoice matches the correct answer
   
@@ -252,12 +254,14 @@ function showNextAnswer(callback) {
  // if user ran out of time, add 1 to totUnaswered
   if(countDownNbr === 0) {
     totUnanswered = totUnanswered + 1;
+    $('#statusMsg').html('Out of Time!');
   };
+ 
   stopTimer();
   showAnswers(showNextQuestion);
   $('.titleCountdown').html('Time Remaining:');
   $('.showCountdown').html(countDownNbr);
-  $('#statusMsg').html('Out of Time!');
+ 
   $('#answer').html(answersTextArr[i]);
   $('#answerImg').attr('src', answersPhotoArr[i]);
   setTimeout(callback, 10000);
