@@ -9,6 +9,9 @@
  //    the difference between using setTimeout() and setInterval() 
  //    the importance of using clearTimeout() to stop timer and prevent from running into negative time
  //    understanding the unit of measure for timing event functions (1000 milliseconds = 1 second)
+ // 3. understanding the difference in how the .prop vs .attr work in jQuery (http://api.jquery.com/prop/)
+ //    .prop allows setting property on a DOM element which affects the running state of HTML page
+ //    .attr allows setting of an attribute value, can show the state, but does not affect the running state
  
  
  // ================================ BEGIN GLOBAL VARIABLE DEFINITIONS =======================================================
@@ -134,7 +137,6 @@ function decrement() {
   // if out of time...
   if (countDownNbr === 0) {
     stopTimer();
-    // showAnswers(showNextQuestion);
     showNextAnswer();
   } else {
     countDownNbr--;
@@ -158,12 +160,12 @@ function getUserChoice() {
   var getChoiceArr = []; // build new array with the choices for this question
   getChoiceArr = choicesArr[i].split(',');
 
-  var userChoice = $("input:radio:checked").val(); // this gets which radio button was clicked
-    console.log("userChoice = " + userChoice);
+  var userChoice = $('input:radio:checked').val(); // this gets which radio button was clicked
+    console.log('userChoice = ' + userChoice);
     
   var j = 0;
   j =  userChoice.substring(13,14); // this gets the index nbr that matches the user choice clicked
-    console.log("j = " + j);
+    console.log('j = ' + j);
   
   userChoice = getChoiceArr[j];
   console.log(userChoice);
@@ -171,17 +173,17 @@ function getUserChoice() {
  // now see if the userChoice matches the correct answer
   
   
-  console.log("answersArr: " + i );
-  console.log("answersArrdata: " + answersArr[i]);
+  console.log('answersArr: ' + i );
+  console.log('answersArrdata: ' + answersArr[i]);
   
   if (userChoice === answersArr[i]) {
     $('#statusMsg').html('CORRECT!');
     totCorrect = totCorrect + 1;
-    console.log("total correct: " + totCorrect);
+    console.log('total correct: ' + totCorrect);
   } else {
     $('#statusMsg').html('Sorry, your answer is incorrect'); 
     totIncorrect = totIncorrect + 1;
-    console.log("total Incorrect: " + totIncorrect);
+    console.log('total Incorrect: ' + totIncorrect);
   }
    // be sure all radio buttons are UNchecked
    $('input[name=choice]').attr('checked', false);
@@ -201,7 +203,7 @@ function showNextQuestion() {
   questionCounter = questionCounter + 1;
   // putting questionCounter in i variable for ease of reading the array index code
   var i = questionCounter;
-  console.log("showNextQuestion var i = " + i);
+  console.log('showNextQuestion var i = ' + i);
   
   if (i < questionsArr.length) {
     showQuestions();
@@ -211,7 +213,7 @@ function showNextQuestion() {
     $( '#question' ).html(questionsArr[i]);
     
     // be sure all radio buttons are UNchecked
-    $('input[name=choice]').attr('checked', false);
+    $('input[name=choice]').prop('checked', false); // impt: .prop updates the DOM, but .attr did NOT - 
 
     // show choices (labels for radio buttons) each question has 6 choices (substrings of choicesArr which is incremented so do not need to increment the substring) 
     subChoiceArr = choicesArr[i].split(',');
@@ -224,6 +226,8 @@ function showNextQuestion() {
     $('label[for=radioLabel4]').html(subChoiceArr[3]);
     $('label[for=radioLabel5]').html(subChoiceArr[4]);
     $('label[for=radioLabel6]').html(subChoiceArr[5]);
+
+    
     
   } else {
     showEndResults();
@@ -264,16 +268,14 @@ function playGame() {
   // user has pressed the start or restart button, you only go through this function once per game!
   // startTimer function is called and countDownNbr displays each second until 0 time
   // the FIRST question in questionsArr should be visible
-  // before doing anything else, check to see if out of questions (questionsArr.length)
-  // wait until an on.click event, then goto show answer (value of i is important so show answer for correct question) 
-  
+      
   totCorrect = 0;
   totIncorrect = 0;
   totUnanswered = 0;
   intervalId = 0;
   countDownNbr = 10; // number of seconds player has to: answer questions
     
-  questionCounter = 0;
+  questionCounter = 0; // start question counter at first question in array
   var i = questionCounter; // get first array element
   
   // show countdownTimer, first question and its choices
