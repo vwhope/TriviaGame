@@ -43,6 +43,8 @@
  'Almond,Brazil nut Hazelnut,Cashew,Pecan,Pistachio',
  'Pistachio,Hazelnut,Pecan,Walnut,Brazil Nut,Cashew'];
  
+ var subChoiceArr;
+
  var answersArr = ['Cashew', 'Hazelnut', 'Peanut', 'Walnut', 'Georgia', 'Macadamia nut', 'Pine nut', 'Almond', 'Brazil nut', 'Pistachio']
  
  var answersTextArr = ['A1: Cashew is the correct answer. Cashew shells are toxic and come from the same plant family as poison ivy.',
@@ -148,25 +150,44 @@ function stopTimer() {
 
 // this function only runs if user CLICKS an answer  
 function getUserChoice() {
-  
   stopTimer();
   var i = questionCounter;
- 
-  var userChoice = $("input:radio:checked");
-  // you can only get this AFTER user clicks on an answer
-  // the issue here is that I need that actual value contained in subChoiceArr[i] not the literal 'subChoiceArr[i]' to compare to correct answer
-  console.log(subChoiceArr[3]);
-  console.log("userChoice =  " + userChoice);
+ ////////////////// there has got to be a better way ////////////
+  console.log(choicesArr[i]); // these are the possible choices for THIS question (i)
+  
+  var getChoiceArr = []; // build new array with the choices for this question
+  getChoiceArr = choicesArr[i].split(',');
 
+  var userChoice = $("input:radio:checked").val(); // this gets which radio button was clicked
+    console.log("userChoice = " + userChoice);
+    
+  var j = 0;
+  j =  userChoice.substring(13,14); // this gets the index nbr that matches the user choice clicked
+    console.log("j = " + j);
+  
+  userChoice = getChoiceArr[j];
+  console.log(userChoice);
+
+ // now see if the userChoice matches the correct answer
+  
+  
   console.log("answersArr: " + i );
   console.log("answersArrdata: " + answersArr[i]);
   
   if (userChoice === answersArr[i]) {
     $('#statusMsg').html('CORRECT!');
+    totCorrect = totCorrect + 1;
+    console.log("total correct: " + totCorrect);
   } else {
     $('#statusMsg').html('Sorry, your answer is incorrect'); 
+    totIncorrect = totIncorrect + 1;
+    console.log("total Incorrect: " + totIncorrect);
   }
-  // showNextAnswer();
+   // be sure all radio buttons are UNchecked
+   $('input[name=choice]').attr('checked', false);
+  
+   showNextAnswer();
+  
 } // end function getUserChoice
 
 
@@ -193,8 +214,10 @@ function showNextQuestion() {
     $('input[name=choice]').attr('checked', false);
 
     // show choices (labels for radio buttons) each question has 6 choices (substrings of choicesArr which is incremented so do not need to increment the substring) 
-    var subChoiceArr = choicesArr[i].split(',');
-    
+    subChoiceArr = choicesArr[i].split(',');
+
+    console.log(subChoiceArr[0]);
+
     $('label[for=radioLabel1]').html(subChoiceArr[0]);
     $('label[for=radioLabel2]').html(subChoiceArr[1]);
     $('label[for=radioLabel3]').html(subChoiceArr[2]);
