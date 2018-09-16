@@ -43,7 +43,7 @@
  'Almond,Cashew,Hazelnut,Macadamia nut,Pine nut,Walnut',
  'Brazil nut,Walnut,Cashew,Almond,Pine nut,Hazelnut',
  'Almond,Brazil nut,Cashew,Pecan,Walnut,Pistachio',
- 'Almond,Brazil nut Hazelnut,Cashew,Pecan,Pistachio',
+ 'Almond,Brazil nut,Hazelnut,Cashew,Pecan,Pistachio',
  'Pistachio,Hazelnut,Pecan,Walnut,Brazil Nut,Cashew'];
  
  var subChoiceArr;
