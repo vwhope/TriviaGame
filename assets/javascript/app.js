@@ -35,12 +35,12 @@
  '9. Which tree nut requires a specific bee to pollinate it and has triangular seeds?',
  '10. Which tree nut is native to the Middle East, is one of the oldest flowering nut trees, and dates back as far as 7,000 B.C.?'];
  
- var choicesArr = ['Brazil nut,Walnut,Hazelnut,Pine nut,Macadamia Nut,Cashew',
+ var choicesArr = ['Walnut,Pecan,Hazelnut,Pine nut,Macadamia Nut,Cashew',
  'Peanut,Hazelnut,Almond,Pistachio,Cashew,Pine nut',
  'Pecan,Pistachio,Pine nut,Brazil Nut,Peanut,Walnut',
  'Pine nut,Brazil nut,Walnut,Pistachio,Peanut,Almond',
  'California,Texas,New Mexico,Arizona,Georgia,Florida',
- 'Almond,Cashew,Hazelnut,Macadamia nut,Pine nut,Walnut',
+ 'Almond,Cashew,Hazelnut,Macadamia nut,Pecan,Walnut',
  'Brazil nut,Walnut,Cashew,Almond,Pine nut,Hazelnut',
  'Almond,Brazil nut,Cashew,Pecan,Walnut,Pistachio',
  'Almond,Brazil nut,Hazelnut,Cashew,Pecan,Pistachio',
@@ -61,16 +61,16 @@
  'A9: Brazil Nut is the correct answer. The tree produces fruit that contain triangular seeds packed like orange segments. Those seeds are the Brazil nuts.',
  'A10: Pistachio is the correct answer. Pistachios are also known as the "smiling nut" in Iran.'];
  
- var answersPhotoArr = ['assets/images/cashew-LauraLartigue.jpg',
- 'assets/images/food-hazelnuts-nuts-68483_cropped.jpg',
- 'assets/images/peanutPlant-2259271_640.jpg',
- 'assets/images/walnuts-tom-hermans-642305-unsplash.jpg',
- 'assets/images/pecans-deryn-macey-508336-unsplash.jpg ',
- 'assets/images/macadamia-nuts-1098170_1920.jpg',
- 'assets/images/pine-nuts-1732073_1920.jpg',
- 'assets/images/almonds-tetiana-bykovets-422966-unsplash.jpg',
+ var answersPhotoArr = ['assets/images/cashew_edt.jpg',
+ 'assets/images/hazelnuts2_edt.jpg',
+ 'assets/images/peanut2_edt.jpg',
+ 'assets/images/walnut_edt.jpg',
+ 'assets/images/pecan_edt.jpg ',
+ 'assets/images/macadamia_edt.jpg',
+ 'assets/images/pinyonPineCone_edt.jpg',
+ 'assets/images/almond2_edt.jpg',
  'assets/images/brazil-nut-638972_1920.jpg',
- 'assets/images/pistachios-1540123_1920.jpg'];
+ 'assets/images/pistachiosWide_edt.jpg'];
  
  // this is pageDivs object as demonstrated by Keith to easily identify which divs to hide or show
  var $pageDivs = {
@@ -183,7 +183,7 @@ function getUserChoice() {
     totCorrect = totCorrect + 1;
     console.log('total correct: ' + totCorrect);
   } else {
-    $('#statusMsg').html('Sorry, your answer is incorrect'); 
+    $('#statusMsg').html('Sorry, Incorrect.'); 
     totIncorrect = totIncorrect + 1;
     console.log('total Incorrect: ' + totIncorrect);
   }
