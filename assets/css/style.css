@@ -115,7 +115,7 @@ body {
 /* @media queries go here (bottom of style.css) */
 @media only screen and (max-width: 980px) {
     #header, #mainContentArea {
-        background-color: lightblue;
+        /* background-color: lightblue; */
         width: 75%;
     }
     
@@ -128,7 +128,7 @@ body {
 @media only screen and (max-width: 768px) {
     /* For medium screen devices */
     #header, #mainContentArea {
-        background-color: yellow;
+        /* background-color: yellow; */
         width: 85%;
     }
     
@@ -140,7 +140,7 @@ body {
 @media only screen and (max-width: 640px) {
     /* For small screen devices */
     #header, #mainContentArea {
-        background-color: green;
+        /* background-color: green; */
         width: 75%;
     }  
     

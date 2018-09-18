@@ -79,10 +79,10 @@ Format: ![background img](https://www.publicdomainpictures.net/en/view-image.php
  ![Macadamia nut photo](/assets/images/macadamia_edt.jpg)
  Format: ![macadamia nut, Pixabay](https://pixabay.com/en/macadamiaNut-317816/)
 
-S. King, US NPS ![Pinyon Pine cone with Seeds at US NPS photo](/assets/images/pinyonPineCone_edt.jpg)
+ ![Pinyon Pine cone with Seeds at US NPS photo S. King, US NPS](/assets/images/pinyonPineCone_edt.jpg)
 Format: ![Pinyon Pine Cone](https://commons.wikimedia.org/wiki/File:Pinus_edulis_cone_NPS.jpg)
 
- ![Brazil nut photo](/assets/images/brazil-nut-638972_1920.jpg)
+ ![Brazil nut photo](/assets/images/brazilnut_edt.jpg)
  Format: ![brazil nut, Pixabay, Gadini](https://pixabay.com/en/brazil-nut-brazil-nuts-acre-638972/)
 
 

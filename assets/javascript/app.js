@@ -68,7 +68,7 @@
  'assets/images/macadamia_edt.jpg',
  'assets/images/pinyonPineCone_edt.jpg',
  'assets/images/almond2_edt.jpg',
- 'assets/images/brazil-nut-638972_1920.jpg',
+ 'assets/images/brazilnut_edt.jpg',
  'assets/images/pistachiosWide_edt.jpg'];
  
  // this is pageDivs object as demonstrated by Keith to easily identify which divs to hide or show
