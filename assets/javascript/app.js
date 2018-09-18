@@ -46,7 +46,7 @@
  'Pistachio,Hazelnut,Pecan,Walnut,Brazil Nut,Cashew'];
  
  var subChoiceArr;
-
+ 
  var answersArr = ['Cashew', 'Hazelnut', 'Peanut', 'Walnut', 'Georgia', 'Macadamia nut', 'Pine nut', 'Almond', 'Brazil nut', 'Pistachio']
  
  var answersTextArr = ['CASHEW is the correct answer. Cashews come from the same plant family as poison ivy and their shells are toxic to humans.',
@@ -153,25 +153,25 @@ function stopTimer() {
 function getUserChoice() {
   stopTimer();
   var i = questionCounter;
-
- ////////////////// there has got to be a better way ////////////
+  
+  ////////////////// there has got to be a better way ////////////
   console.log(choicesArr[i]); // these are the possible choices for THIS question (i)
   
   var getChoiceArr = []; // build new array with the choices for this question
   getChoiceArr = choicesArr[i].split(',');
-
+  
   var userChoice = $('input:radio:checked').val(); // this gets which radio button was clicked
-    console.log('userChoice = ' + userChoice);
-    
+  console.log('userChoice = ' + userChoice);
+  
   var j = 0;
   j =  userChoice.substring(13,14); // this gets the index nbr that matches the user choice clicked
-    console.log('j = ' + j);
+  console.log('j = ' + j);
   
   userChoice = getChoiceArr[j];
   console.log(userChoice);
- /////////////////////////////////////////////////////////////////
-
- // now see if the userChoice matches the correct answer
+  /////////////////////////////////////////////////////////////////
+  
+  // now see if the userChoice matches the correct answer
   
   
   console.log('answersArr: ' + i );
@@ -186,10 +186,10 @@ function getUserChoice() {
     totIncorrect = totIncorrect + 1;
     console.log('total Incorrect: ' + totIncorrect);
   }
-   // be sure all radio buttons are UNchecked
-   $('input[name=choice]').attr('checked', false);
+  // be sure all radio buttons are UNchecked
+  $('input[name=choice]').attr('checked', false);
   
-   showNextAnswer();
+  showNextAnswer();
   
 } // end function getUserChoice
 
@@ -215,19 +215,19 @@ function showNextQuestion() {
     
     // be sure all radio buttons are UNchecked
     $('input[name=choice]').prop('checked', false); // impt: .prop updates the DOM, but .attr did NOT - 
-
+    
     // show choices (labels for radio buttons) each question has 6 choices (substrings of choicesArr which is incremented so do not need to increment the substring) 
     subChoiceArr = choicesArr[i].split(',');
-
+    
     console.log(subChoiceArr[0]);
-
+    
     $('label[for=radioLabel1]').html(subChoiceArr[0]);
     $('label[for=radioLabel2]').html(subChoiceArr[1]);
     $('label[for=radioLabel3]').html(subChoiceArr[2]);
     $('label[for=radioLabel4]').html(subChoiceArr[3]);
     $('label[for=radioLabel5]').html(subChoiceArr[4]);
     $('label[for=radioLabel6]').html(subChoiceArr[5]);
-
+    
     
     
   } else {
@@ -250,34 +250,34 @@ function showEndResults() {
 
 function showNextAnswer(callback) {
   var i = questionCounter;
- // if user ran out of time, add 1 to totUnaswered
+  // if user ran out of time, add 1 to totUnaswered
   if(countDownNbr === 0) {
     totUnanswered = totUnanswered + 1;
     $('#statusMsg').html('Out of Time!');
   };
- 
+  
   stopTimer();
   showAnswers(showNextQuestion);
   $('.titleCountdown').html('Time Remaining:');
   $('.showCountdown').html(countDownNbr);
- 
+  
   $('#answer').html(answersTextArr[i]);
   $('#answerImg').attr('src', answersPhotoArr[i]);
   setTimeout(callback, 10000);
-  } // end showNextAnswer - should call back to showNextQuestion until out of questions
+} // end showNextAnswer - should call back to showNextQuestion until out of questions
 
 
 function playGame() {
   // user has pressed the start or restart button, you only go through this function once per game!
   // startTimer function is called and countDownNbr displays each second until 0 time
   // the FIRST question in questionsArr should be visible
-      
+  
   totCorrect = 0;
   totIncorrect = 0;
   totUnanswered = 0;
   intervalId = 0;
   countDownNbr = 10; // number of seconds player has to: answer questions
-    
+  
   questionCounter = 0; // start question counter at first question in array
   var i = questionCounter; // get first array element
   

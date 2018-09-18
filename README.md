@@ -50,7 +50,7 @@
 
 * Image/Photo Credits:
 
-![Vincent van Zalinge](/assets/images/vincent-van-zalinge-438227-unsplash (1).jpg)
+![Vincent van Zalinge](/assets/images/vincent-van-zalinge-438227-unsplash.jpg)
 Format: ![main header img](https://unsplash.com/photos/rYZHmeH4dvQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 
 
