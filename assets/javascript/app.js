@@ -1,10 +1,9 @@
  // JavaScript/jQuery for go Nuts! Trivia Game
  
  // important lessons learned with this game:
- // 1. the difference between using hide/show versus using empty and then manually re-creating elements on the DOM
- //    when you hide/show html the event listeners/handlers remain attached/active
- //    if you use empty - you have deleted those elements from the DOM and the listeners/handlers are gone as well!
- //    it takes more resources to empty, recreate, re-add events than to just hide/show existing HTML
+ // 1. the difference between using hide, show, amd  methods. Hide and show effectively change the CSS display attribute to none.
+ //    while empty removes the contents and so must be re-created/added back to the DOM.
+ //    It takes more resources to empty and recreate elements on the page than to hide/show existing HTML
  // 2. experience using the HTML DOM Window object 'Timing Events'
  //    the difference between using setTimeout() and setInterval() 
  //    the importance of using clearTimeout() to stop timer and prevent from running into negative time
@@ -24,16 +23,16 @@
  var countDownNbr = 10; // countdown for each question = 30 seconds, for answer and result: 15 seconds, shorter now for testing purposes
  var questionCounter = 0;
  
- var questionsArr = ['1. Which nut listed can NOT be purchased in its shell?',
- '2. Which nut listed is a TRUE nut?',
- '3. Which nut listed is NOT a TREE nut?',
- '4. Shells of which nut are frequently used as an abrasive in cleaning, polishing and body/bath products?',
- '5. Which US state produces the most pecans annually?',
- '6. Per one ounce serving, which nut has the highest fat content?',
- '7. Which nuts can be harvested from the forests of the Southwestern United States?',
- '8. Per one ounce serving, which tree nut contains the most protein, fiber and calcium?',
- '9. Which tree nut requires a specific bee to pollinate it and has triangular seeds?',
- '10. Which tree nut is native to the Middle East, is one of the oldest flowering nut trees, and dates back as far as 7,000 B.C.?'];
+ var questionsArr = ['Which nut listed can NOT be purchased in its shell?',
+ 'Which nut listed is a TRUE nut?',
+ 'Which nut listed is NOT a TREE nut?',
+ 'Shells of which nut are frequently used as an abrasive in cleaning, polishing and body/bath products?',
+ 'Which U.S. state produces the most pecans annually?',
+ 'Per one ounce serving, which nut has the highest fat content?',
+ 'Which nuts can be harvested from the forests of the Southwestern United States?',
+ 'Per one ounce serving, which tree nut contains the most protein, fiber and calcium?',
+ 'Which tree nut has triangular seeds and requires a specific bee for its pollination?',
+ 'Which tree nut is native to the Middle East, is one of the oldest flowering nut trees, and dates back as far as 7,000 B.C.?'];
  
  var choicesArr = ['Walnut,Pecan,Hazelnut,Pine nut,Macadamia Nut,Cashew',
  'Peanut,Hazelnut,Almond,Pistachio,Cashew,Pine nut',
@@ -50,22 +49,22 @@
 
  var answersArr = ['Cashew', 'Hazelnut', 'Peanut', 'Walnut', 'Georgia', 'Macadamia nut', 'Pine nut', 'Almond', 'Brazil nut', 'Pistachio']
  
- var answersTextArr = ['A1: Cashew is the correct answer. Cashew shells are toxic and come from the same plant family as poison ivy.',
- 'A2: Hazelnut is the correct answer. TRUE nuts have a hard wall around the seed. Both hazel nuts and pecans are TRUE nuts.',
- 'A3: Peanut is the correct answer. Peanuts are actually a type of pea or legume and grows underground.',
- 'A4: Walnut is the correct answer. Pulverized walnut shells are frequently used when a natural abrasive is required.',
- 'A5: Georgia is the correct answer. In most years, Georgia produces the most pecans. Texas is a close second and will occasionally exceed Georgia.',
- 'A6: Macadamia nut is the correct answer. Macadamia nuts, grown in Hawaii, contain the most fat of any tree nut.',
- 'A7: Pine nut is the correct answer. Many pine nuts come from pine cones of pinyon trees of the American Southwest.',
- 'A8: Almond is the correct answer. Almonds also contain more vitamin B2, vitamin B3, and vitamin E than other tree nuts.',
- 'A9: Brazil Nut is the correct answer. The tree produces fruit that contain triangular seeds packed like orange segments. Those seeds are the Brazil nuts.',
- 'A10: Pistachio is the correct answer. Pistachios are also known as the "smiling nut" in Iran.'];
+ var answersTextArr = ['CASHEW is the correct answer. Cashews come from the same plant family as poison ivy and their shells are toxic to humans.',
+ 'HAZELNUT is the correct answer. TRUE nuts have a hard-shelled pod that contains both the fruit and seed of the plant. Both hazelnuts and pecans are TRUE nuts.',
+ 'PEANUT is the correct answer. Peanuts do not grow on trees. They are actually a type of legume and they grow underground.',
+ 'WALNUT is the correct answer. Pulverized walnut shells are frequently used when a natural abrasive is required.',
+ 'GEORGIA is the correct answer. In most years, Georgia produces the most pecans. Texas is a close second and will occasionally exceed Georgia.',
+ 'MACADAMIA NUT is the correct answer. Grown in Hawaii, macadamia nuts contain the most fat of any tree nut.',
+ 'PINE NUT is the correct answer. American pine nuts are harvested from pine cones of pinyon trees of the American Southwest.',
+ 'ALMOND is the correct answer. Almonds also contain more vitamin B2, vitamin B3, and vitamin E than other tree nuts.',
+ 'BRAZIL NUT is the correct answer. The tree produces fruit that contain triangular seeds packed like orange segments. Those seeds are the Brazil nuts.',
+ 'PISTACHIO is the correct answer. Pistachios are often referred to as the "smiling nut".'];
  
  var answersPhotoArr = ['assets/images/cashew_edt.jpg',
  'assets/images/hazelnuts2_edt.jpg',
  'assets/images/peanut2_edt.jpg',
  'assets/images/walnut_edt.jpg',
- 'assets/images/pecan_edt.jpg ',
+ 'assets/images/pecan2_edt.jpg ',
  'assets/images/macadamia_edt.jpg',
  'assets/images/pinyonPineCone_edt.jpg',
  'assets/images/almond2_edt.jpg',
