@@ -1,4 +1,5 @@
 # TriviaGame -  go Nuts!
+Deployed Link: [Trivia Game](https://vwhope.github.io/TriviaGame/)
 ### theme: Fun facts about nuts
 #### Triva game using JavaScript and jQuery
 
