@@ -1,9 +1,17 @@
 # TriviaGame -  go Nuts!
 Deployed Link: [Trivia Game](https://vwhope.github.io/TriviaGame/)
 ### theme: Fun facts about nuts
-#### Triva game using JavaScript and jQuery
 
-**Skills demonstrated in project:**
+**Problem to Solve**
+* Create a trivia game that updates data without reloading the HTML page
+* Use timers to move from one question to the next without user interaction
+
+**Solution**
+By using JavaScript timing event methods such at setTimout() and setInterval(),
+this trivia game moves from question to question to end of game based on time. By combining timing events with jQuery's hide() and show() methods, it is possible to show questions and hide answers and hide questions and answers and show results, all within the same HTML page, without refreshing the page.
+
+
+**Technical Skills demonstrated in project:**
 * example use case for single page application (SPA) 
     * basic nutrition education related to a single topic 
 * application of JavaScript language
