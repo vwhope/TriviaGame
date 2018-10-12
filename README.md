@@ -4,19 +4,20 @@ Deployed Link: [Trivia Game](https://vwhope.github.io/TriviaGame/)
 
 **Problem to Solve**
 * Create a trivia game that updates data without reloading the HTML page
-* Use timers to move from one question to the next without user interaction
+* Use timers to move from question to question even if no user interaction
 
 **Solution**
+
 By using JavaScript timing event methods such at setTimout() and setInterval(),
 this trivia game moves from question to question to end of game based on time. By combining timing events with jQuery's hide() and show() methods, it is possible to show questions and hide answers and hide questions and answers and show results, all within the same HTML page, without refreshing the page.
 
 
 **Technical Skills demonstrated in project:**
 * example use case for single page application (SPA) 
-    * basic nutrition education related to a single topic 
+    * basic nutrition education trivia game 
 * application of JavaScript language
 * application of CSS and reset files
-* manipulation of the HTML page using the jQuery library
+* manipulation of the HTML page using jQuery
 * responsive web design
 * use of custom fonts
 * use of photos
