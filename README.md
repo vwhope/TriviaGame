@@ -56,11 +56,9 @@ this trivia game moves from question to question to end of game based on time. B
   * [wikimedia](https://commons.wikimedia.org)
   * [publicdomainpictures](https://www.publicdomainpictures.net)
 
-* Animated gifs were from: [GIPHY](https://giphy.com/) - none were used in this version of the game
-
 * Image/Photo Credits:
 
-![Vincent van Zalinge](/assets/images/vincent-van-zalinge-438227-unsplash_edt.jpg)
+![Vincent van Zalinge](/assets/images/vincent-van-zalinge-438227-unsplash_edt.jpg){height="200"}
 Format: ![main header img](https://unsplash.com/photos/rYZHmeH4dvQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 
 
